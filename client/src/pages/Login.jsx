@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { login } from "../api/auth.api";
 import { useAuth } from "../context/AuthContext";
@@ -18,13 +19,12 @@ function Login() {
   const onSubmit = async (data) => {
     try {
       const response = await login(data);
-       //console.log("LOGIN RESPONSE:", response);
+      //console.log("LOGIN RESPONSE:", response);
 
       setUser(response.data);
-          //console.log("USER SET");
+      //console.log("USER SET");
 
       navigate("/dashboard");
-       
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
     }
@@ -94,6 +94,12 @@ function Login() {
         >
           Login
         </button>
+        <p className="text-center mt-4">
+          Don't have an account?{" "}
+          <Link to="/register" className="text-blue-600 hover:underline">
+            Register
+          </Link>
+        </p>
       </form>
     </div>
   );

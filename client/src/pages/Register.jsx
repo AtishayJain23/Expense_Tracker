@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import { register as registerApi } from "../api/auth.api";
 
 function Register() {
@@ -110,6 +110,12 @@ function Register() {
         >
           Register
         </button>
+        <p className="text-center mt-4">
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600 hover:underline">
+            Login
+          </Link>
+        </p>
       </form>
     </div>
   );
